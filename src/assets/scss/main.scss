@@ -6,6 +6,11 @@
     font-family: 'Fira Sans', sans-serif;
 }
 
+body {
+    background: linear-gradient(to bottom right, rgb(7, 183, 183), rgb(67, 67, 192), rgb(192, 22, 192));
+    -webkit-background-clip: text;
+}
+
 header {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -16,9 +21,10 @@ header {
         text-align: center;
 
         strong {
-            background: linear-gradient(to right, #1ca6a6 0%, #7225cf 100%);
+            background: linear-gradient(to right, #f9f9f9 0%, #fcb9e2 100%);
 	        -webkit-background-clip: text;
 	        -webkit-text-fill-color: transparent;
+			font-size: 48px;
         }
     }
 }
@@ -46,7 +52,7 @@ header {
 				padding: 8px 16px;
 				text-align: left;
 
-				color: #888;
+				color: rgb(66, 65, 65);
 				font-size: 16px;
 				margin-bottom: 16px;
 
@@ -136,7 +142,8 @@ header {
 				}
 
 				h3 {
-					color: #313131;
+					color: whitesmoke;
+					text-align: center;
 				}
 
 				&:hover {

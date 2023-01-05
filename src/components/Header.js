@@ -4,7 +4,7 @@ function Header() {
   return (
     <header>
       <h1>
-        <strong>Anime References</strong>
+        <strong>Kyunime</strong>
       </h1>
     </header>
   );

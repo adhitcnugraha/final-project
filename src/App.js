@@ -2,17 +2,21 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header.js";
 import Sidebar from "./components/Sidebar.js";
 import MainContent from "./components/MainContent.js";
+import Navbar from "./components/Navbar.js";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const animeAPI = "https://api.jikan.moe/v4/top/anime";
 const mangaAPI = "https://api.jikan.moe/v4/top/manga";
 
 function App() {
+  const [mangaList, SetMangaList] = useState([]);
   const [animeList, SetAnimeList] = useState([]);
   const [topAnime, SetTopAnime] = useState([]);
   const [topManga, SetTopManga] = useState([]);
   const [search, SetSearch] = useState("");
 
-  // Anime
+  // useEffect Anime
   useEffect(() => {
     const GetTopAnime = async () => {
       const result = await fetch(animeAPI);
@@ -23,7 +27,7 @@ function App() {
     GetTopAnime();
   }, []);
 
-  // Manga
+  // useEffect Manga
   useEffect(() => {
     const GetTopManga = async (query) => {
       const mangaResult = await fetch(mangaAPI);
@@ -39,19 +43,37 @@ function App() {
   const handleSearch = (e) => {
     e.preventDefault();
     getAnime(search);
+    // getManga(search);
   };
+
+  // Search get Anime
   const getAnime = async (query) => {
+    // Get Anime
     const searchAnimeResult = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${query}&order_by=title&sort=asc&rating=g&limit=30`
+      `https://api.jikan.moe/v4/anime?q=${query}&order_by=title&sort=asc&rating=pg13&limit=30`
     );
+
     searchAnimeResult.json().then((json) => {
       SetAnimeList(json.data);
       console.log(animeList);
     });
   };
 
+  // Search get Manga
+  const getManga = async (query) => {
+    // Get Manga
+    const searchMangaResult = await fetch(
+      `https://api.jikan.moe/v4/manga?q=${query}&order_by=title&sort=asc`
+    );
+    searchMangaResult.json().then((json) => {
+      SetMangaList(json.data);
+      console.log(mangaList);
+    });
+  };
+
   return (
     <div className="App">
+      <Navbar />
       <Header />
       <div className="content-wrap">
         <Sidebar topAnime={topAnime} topManga={topManga} />
@@ -60,6 +82,7 @@ function App() {
           search={search}
           SetSearch={SetSearch}
           animeList={animeList}
+          mangaList={mangaList}
         />
       </div>
     </div>
