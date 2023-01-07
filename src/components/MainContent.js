@@ -19,6 +19,9 @@ function MainContent(props) {
         {props.animeList.map((anime) => (
           <AnimeCard anime={anime} key={anime.mal_id} />
         ))}
+        {/* {props.mangaList.map((manga) => (
+          <AnimeCard manga={manga} key={manga.mal_id} />
+        ))} */}
       </div>
     </main>
   );

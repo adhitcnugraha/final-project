@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(to bottom right, rgb(7, 183, 183), rgb(67, 67, 192), rgb(192, 22, 192));
+  background: linear-gradient(to right, #4a4a91 0%, #47478C 100% );
   -webkit-background-clip: text;
 }
 

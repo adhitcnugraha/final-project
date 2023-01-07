@@ -4,8 +4,6 @@ import Sidebar from "./components/Sidebar.js";
 import MainContent from "./components/MainContent.js";
 import Navbar from "./components/Navbar.js";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
 const animeAPI = "https://api.jikan.moe/v4/top/anime";
 const mangaAPI = "https://api.jikan.moe/v4/top/manga";
 
@@ -43,32 +41,40 @@ function App() {
   const handleSearch = (e) => {
     e.preventDefault();
     getAnime(search);
-    // getManga(search);
+    getManga(search);
   };
 
   // Search get Anime
   const getAnime = async (query) => {
     // Get Anime
-    const searchAnimeResult = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${query}&order_by=title&sort=asc&rating=pg13&limit=30`
-    );
+    try {
+      const searchAnimeResult = await fetch(
+        `https://api.jikan.moe/v4/anime?q=${query}&order_by=title&sort=asc&rating=pg13&limit=30`
+      );
 
-    searchAnimeResult.json().then((json) => {
-      SetAnimeList(json.data);
-      console.log(animeList);
-    });
+      searchAnimeResult.json().then((json) => {
+        SetAnimeList(json.data);
+        console.log(animeList);
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   // Search get Manga
   const getManga = async (query) => {
     // Get Manga
-    const searchMangaResult = await fetch(
-      `https://api.jikan.moe/v4/manga?q=${query}&order_by=title&sort=asc`
-    );
-    searchMangaResult.json().then((json) => {
-      SetMangaList(json.data);
-      console.log(mangaList);
-    });
+    try {
+      const searchMangaResult = await fetch(
+        `https://api.jikan.moe/v4/manga?q=${query}&order_by=title&sort=asc`
+      );
+      searchMangaResult.json().then((json) => {
+        SetMangaList(json.data);
+        console.log(mangaList);
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
