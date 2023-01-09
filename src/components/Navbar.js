@@ -1,23 +1,32 @@
 import React from "react";
-// import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
+import { Avatar } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-// import HomeIcon from "@mui/icons-material/Home";
 import "typeface-dm-sans";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const user = null;
+
+  // const history = useHistory();
+
+  // function handleClick() {
+  //   history.replace("/login");
+  // }
+
   return (
-    <Toolbar style={{ marginTop: 30 }}>
+    <Toolbar style={{ marginTop: 30, marginBottom: 30 }}>
       <Typography
         variant="h6"
         component="div"
         sx={{ flexGrow: 1 }}
         style={{ color: "#F9F9F9" }}
       >
-        <Button
+        <Typography
           color="inherit"
+          component={Link}
+          to="/"
           style={{
             width: 175,
             height: 68,
@@ -27,7 +36,7 @@ const Navbar = () => {
           }}
         >
           <strong>Kyunime</strong>
-        </Button>
+        </Typography>
         <Button
           variant="contained"
           color="primary"
@@ -60,7 +69,7 @@ const Navbar = () => {
         >
           Manga
         </Button>
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           style={{
@@ -75,7 +84,7 @@ const Navbar = () => {
           }}
         >
           Review
-        </Button>
+        </Button> */}
         <Button
           variant="contained"
           color="primary"
@@ -92,7 +101,7 @@ const Navbar = () => {
         >
           Bookmark
         </Button>
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           style={{
@@ -107,12 +116,29 @@ const Navbar = () => {
           }}
         >
           Setting
-        </Button>
+        </Button> */}
       </Typography>
 
-      <Button color="inherit" size="large" style={{ color: "#F9F9F9" }}>
-        Login
-      </Button>
+      {user ? (
+        <div>
+          <Avatar src={user.result.imageUrl}>
+            {user.result.name.charAt(0)}
+          </Avatar>
+          <Button color="inherit" size="large" style={{ color: "#F9F9F9" }}>
+            Logout
+          </Button>
+        </div>
+      ) : (
+        <Button
+          color="inherit"
+          size="large"
+          style={{ color: "#F9F9F9" }}
+          component={Link}
+          to="/login"
+        >
+          Login
+        </Button>
+      )}
     </Toolbar>
   );
 };

@@ -11,21 +11,6 @@ import "typeface-dm-sans";
 // import { Link } from "react-router-dom";
 
 {
-  /* <article className="anime-card">
-        <a href={anime.url} target="_blank" rel="noreferrer">
-          <figure>
-            <img src={anime.images.jpg.image_url} alt="Anime Image" />
-          </figure>
-          <h3>{anime.title}</h3>
-        </a>
-      </article> */
-}
-
-{
-  /* Awasin */
-}
-
-{
   /* <article className="manga-card">
         <a href={manga.url} target="_blank" rel="noreferrer">
           <figure>
@@ -89,7 +74,16 @@ function AnimeCard({ anime }) {
         </CardActionArea>
         <CardActions>
           <Button>
-            <FavoriteIcon />
+            <FavoriteIcon style={{ margin: "0 0 0 20px" }} />{" "}
+            <h3
+              style={{
+                padding: "0 0 0 7px",
+                fontFamily: "DM Sans",
+                fontSize: 14,
+              }}
+            >
+              1,400,000
+            </h3>
           </Button>
           <Button style={{ margin: "0 0 0 22vh" }}>
             <BookmarkBorderIcon />
