@@ -5,6 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "typeface-dm-sans";
 // import { Link } from "react-router-dom";
 
@@ -34,7 +36,6 @@ import "typeface-dm-sans";
 }
 
 function AnimeCard({ anime }) {
-  const genre = anime.genres[0].name;
   return (
     <Grid>
       <Card sx={{ width: 345 }} style={{ borderRadius: 38, margin: 30 }}>
@@ -84,21 +85,15 @@ function AnimeCard({ anime }) {
                 </h3>
               </a>
             </Typography>
-            {/* <Typography
-              noWrap
-              variant="body2"
-              color="text.secondary"
-              maxLength={50}
-              overflow="hidden"
-            >
-              {anime.synopsis}
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
-          {/* <Button size="small" color="primary" style={{ padding: 20 }}>
-            open
-          </Button> */}
+          <Button>
+            <FavoriteIcon />
+          </Button>
+          <Button style={{ margin: "0 0 0 22vh" }}>
+            <BookmarkBorderIcon />
+          </Button>
         </CardActions>
       </Card>
     </Grid>

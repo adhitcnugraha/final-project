@@ -4,7 +4,7 @@ import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import HomeIcon from "@mui/icons-material/Home";
+// import HomeIcon from "@mui/icons-material/Home";
 import "typeface-dm-sans";
 
 const Navbar = () => {
@@ -16,8 +16,17 @@ const Navbar = () => {
         sx={{ flexGrow: 1 }}
         style={{ color: "#F9F9F9" }}
       >
-        <Button color="inherit" style={{ marginRight: 40 }}>
-          Kyunime
+        <Button
+          color="inherit"
+          style={{
+            width: 175,
+            height: 68,
+            fontSize: 18,
+            fontFamily: "DM Sans",
+            textColor: "linear-gradient(to right, #f9f9f9 0%, #fcb9e2 100%",
+          }}
+        >
+          <strong>Kyunime</strong>
         </Button>
         <Button
           variant="contained"
@@ -100,6 +109,7 @@ const Navbar = () => {
           Setting
         </Button>
       </Typography>
+
       <Button color="inherit" size="large" style={{ color: "#F9F9F9" }}>
         Login
       </Button>

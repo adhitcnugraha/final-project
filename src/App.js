@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Header from "./components/Header.js";
 import Sidebar from "./components/Sidebar.js";
 import MainContent from "./components/MainContent.js";
 import Navbar from "./components/Navbar.js";
@@ -80,7 +79,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Header />
       <div className="content-wrap">
         <Sidebar topAnime={topAnime} topManga={topManga} />
         <MainContent
