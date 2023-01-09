@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Grid } from "@mui/material";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 
 function Sidebar({ topAnime, topManga }) {
   return (
-    <Grid>
-      <Card style={{ borderRadius: 32 }}>
+    <Grid style={{ marginTop: 30, marginBottom: 30 }}>
+      <Card style={{ borderRadius: 32, width: 400, height: 700 }}>
         <aside>
           <nav>
-            <h1>Top Anime</h1>
+            <EmojiEventsOutlinedIcon /> <h1>Top Anime</h1>
             {topAnime.map((anime) => (
               <a
                 href={anime.url}
