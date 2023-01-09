@@ -62,6 +62,7 @@ header h1 strong {
 .content-wrap main {
   flex: 1 1 0%;
   padding: 0px 16px;
+  margin-left: 40px;
 }
 .content-wrap main .main-head {
   display: flex;
