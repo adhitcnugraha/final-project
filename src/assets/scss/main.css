@@ -6,9 +6,12 @@
 }
 
 body {
-  background: linear-gradient(to right, #4a4a91 0%, #47478C 100% );
-  -webkit-background-clip: text;
+  background: #47478c;
 }
+
+/* body .login {
+  background: ;
+} */
 
 header {
   padding-top: 30px;
@@ -62,7 +65,6 @@ header h1 strong {
 .content-wrap main {
   flex: 1 1 0%;
   padding: 0px 16px;
-  margin-left: 40px;
 }
 .content-wrap main .main-head {
   display: flex;

@@ -9,12 +9,6 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const user = null;
 
-  // const history = useHistory();
-
-  // function handleClick() {
-  //   history.replace("/login");
-  // }
-
   return (
     <Toolbar style={{ marginTop: 30, marginBottom: 30 }}>
       <Typography
@@ -30,7 +24,7 @@ const Navbar = () => {
           style={{
             width: 175,
             height: 68,
-            fontSize: 18,
+            fontSize: 22,
             fontFamily: "DM Sans",
             textColor: "linear-gradient(to right, #f9f9f9 0%, #fcb9e2 100%",
           }}
@@ -40,6 +34,8 @@ const Navbar = () => {
         <Button
           variant="contained"
           color="primary"
+          component={Link}
+          to="/anime"
           style={{
             borderRadius: 28,
             backgroundColor: "#4B6274",
@@ -56,6 +52,8 @@ const Navbar = () => {
         <Button
           variant="contained"
           color="primary"
+          component={Link}
+          to="/manga"
           style={{
             borderRadius: 28,
             backgroundColor: "#4B6274",
@@ -72,6 +70,8 @@ const Navbar = () => {
         <Button
           variant="contained"
           color="primary"
+          component={Link}
+          to="/bookmark"
           style={{
             borderRadius: 28,
             backgroundColor: "#4B6274",
@@ -92,7 +92,11 @@ const Navbar = () => {
           <Avatar src={user.result.imageUrl}>
             {user.result.name.charAt(0)}
           </Avatar>
-          <Button color="inherit" size="large" style={{ color: "#F9F9F9" }}>
+          <Button
+            color="inherit"
+            size="large"
+            style={{ color: "#F9F9F9", fontSize: 20, fontFamily: "DM Sans" }}
+          >
             Logout
           </Button>
         </div>
@@ -100,7 +104,7 @@ const Navbar = () => {
         <Button
           color="inherit"
           size="large"
-          style={{ color: "#F9F9F9" }}
+          style={{ color: "#F9F9F9", fontSize: 20, fontFamily: "DM Sans" }}
           component={Link}
           to="/login"
         >

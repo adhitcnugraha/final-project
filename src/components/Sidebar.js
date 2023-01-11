@@ -8,7 +8,36 @@ function Sidebar({ topAnime, topManga }) {
       <Card style={{ borderRadius: 32, width: 400, height: 700 }}>
         <aside>
           <nav>
-            <EmojiEventsOutlinedIcon /> <h1>Top Anime</h1>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                margin: 10,
+                justifyContent: "",
+              }}
+            >
+              <EmojiEventsOutlinedIcon
+                style={{ margin: 10, display: "inline-block" }}
+              />
+              <h1
+                style={{
+                  marginRight: "10vh",
+                  fontSize: 16,
+                  fontFamily: "DM Sans",
+                }}
+              >
+                Top Anime
+              </h1>
+              <h1
+                style={{
+                  marginLeft: "12vh",
+                  fontSize: 16,
+                  fontFamily: "DM Sans",
+                }}
+              >
+                View All
+              </h1>
+            </div>
             {topAnime.map((anime) => (
               <a
                 href={anime.url}
@@ -19,7 +48,36 @@ function Sidebar({ topAnime, topManga }) {
                 {anime.title}
               </a>
             ))}
-            <h1>Top Manga</h1>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                margin: 1,
+                justifyContent: "",
+              }}
+            >
+              <EmojiEventsOutlinedIcon
+                style={{ margin: 10, display: "inline-block" }}
+              />
+              <h1
+                style={{
+                  marginRight: "12vh",
+                  fontSize: 16,
+                  fontFamily: "DM Sans",
+                }}
+              >
+                Top Manga
+              </h1>
+              <h1
+                style={{
+                  marginLeft: "10vh",
+                  fontSize: 16,
+                  fontFamily: "DM Sans",
+                }}
+              >
+                View All
+              </h1>
+            </div>
             {topManga.map((manga) => (
               <a
                 href={manga.url}
