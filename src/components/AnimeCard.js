@@ -8,17 +8,6 @@ import Grid from "@mui/material/Grid";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import "typeface-dm-sans";
-// import { Link } from "react-router-dom";
-
-{
-  /* <article className="manga-card">
-        <a href={manga.url} target="_blank" rel="noreferrer">
-          <figure>
-            <img src={manga.images.jpg.image_url} alt="Manga Image" />
-          </figure>
-        </a>
-      </article> */
-}
 
 function AnimeCard({ anime }) {
   return (
