@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Grid } from "@mui/material";
+import { Card, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 
 function Sidebar({ topAnime, topManga }) {
@@ -28,15 +29,19 @@ function Sidebar({ topAnime, topManga }) {
               >
                 Top Anime
               </h1>
-              <h1
+              <Typography
+                component={Link}
+                to="/anime"
                 style={{
                   marginLeft: "12vh",
                   fontSize: 16,
                   fontFamily: "DM Sans",
+                  color: "black",
+                  textTransform: "none",
                 }}
               >
                 View All
-              </h1>
+              </Typography>
             </div>
             {topAnime.map((anime) => (
               <a

@@ -1,6 +1,6 @@
 import Dashboard from "./Dashboard";
 import Navbar from "./Navbar";
-import "../assets/scss/main.css";
+import "../../assets/scss/main.css";
 
 function Homepage() {
   return (

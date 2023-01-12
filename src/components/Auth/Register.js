@@ -14,9 +14,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import React, { useState } from "react";
 import "typeface-dm-sans";
 import { Link } from "react-router-dom";
-// import logo from "../../assets/logologin.png";
 
-const Login = () => {
+const Register = () => {
+  // Password
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -24,26 +24,16 @@ const Login = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  // const state = null;
+
   return (
-    <div className="registerPage">
-      {/* <img
-        src={logo}
-        alt="Logo"
-        style={{
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          position: "fixed",
-        }}
-      /> */}
+    <div className="loginPage">
       <div style={{ position: "absolute", right: "75vh", top: "12vh" }}>
         {/* Description */}
         <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
-          Konnichiwa~!
+          Sign Up
         </h1>
         <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
-          <strong style={{ color: "black", opacity: 0.9 }}>Log in </strong>
-          with your email please
+          Create Account
         </h1>
 
         {/* Email */}
@@ -113,7 +103,7 @@ const Login = () => {
               textTransform: "none",
             }}
           >
-            Login
+            Create Account
           </Button>
 
           {/* Sign up */}
@@ -126,7 +116,7 @@ const Login = () => {
               marginTop: "5vh",
             }}
           >
-            Didn't have account yet?
+            Have account?
             <Button
               style={{
                 color: "black",
@@ -137,9 +127,9 @@ const Login = () => {
                 fontSize: 20,
               }}
               component={Link}
-              to="/register"
+              to="/login"
             >
-              Sign Up
+              Sign In
             </Button>
           </Typography>
         </Grid>
@@ -148,4 +138,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

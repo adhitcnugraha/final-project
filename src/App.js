@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Auth/Login.js";
-import Homepage from "./components/Homepage.js";
+import Homepage from "./components/Main Page/Homepage.js";
 import AnimePage from "./components/Anime/AnimePage.js";
 import MangaPage from "./components/Manga/MangaPage.js";
 import BookmarkPage from "./components/Bookmark/BookmarkPage.js";
+import Register from "./components/Auth/Register.js";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/anime" element={<AnimePage />} />
         <Route path="/manga" element={<MangaPage />} />
         <Route path="/bookmark" element={<BookmarkPage />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

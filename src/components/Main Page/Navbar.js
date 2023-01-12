@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "@mui/material";
+// import { Avatar } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const user = null;
-
   return (
     <Toolbar style={{ marginTop: 30, marginBottom: 30 }}>
       <Typography
@@ -89,9 +88,9 @@ const Navbar = () => {
 
       {user ? (
         <div>
-          <Avatar src={user.result.imageUrl}>
+          {/* <Avatar src={user.result.imageUrl}>
             {user.result.name.charAt(0)}
-          </Avatar>
+          </Avatar> */}
           <Button
             color="inherit"
             size="large"
