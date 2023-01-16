@@ -1,28 +1,50 @@
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
-import postRoutes from "./routes/posts.js";
+// import
+const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
+const User = require("./models/userModel.js");
 
+// middleware
 const app = express();
-dotenv.config();
-
-const port = process.env.PORT;
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.use(express.json());
 
-app.use("/posts", postRoutes);
+const url = process.env.MONGODB_URL;
+mongoose.connect(url);
 
-// db config
-mongoose.connect(process.env.CONNECTION_URL);
-
-const db = mongoose.connection;
-db.once("open", () => {
-  console.log("db is connected");
+// route
+app.post("/api/register", async (req, res) => {
+  console.log(req.body);
+  try {
+    const user = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    res.json({ status: "ok" });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ status: "error", error: "Email was duplicated" });
+  }
 });
 
-//listener
-app.listen(port, () => console.log(`Listening on localhost:${port}`));
+app.post("/api/login", async (req, res) => {
+  const user = await User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  if (user) {
+    return res.json({ status: "ok", user: true });
+  } else {
+    return res.json({ status: "error", user: false });
+  }
+});
+
+// listener
+const port = 4000;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
