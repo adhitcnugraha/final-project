@@ -16,124 +16,167 @@ import "typeface-dm-sans";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  // useState email & password
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   // Password
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const handleMouseDownPassword = (e) => {
+    e.preventDefault();
   };
+
+  // Register User
+  async function registerUser(e) {
+    e.preventDefault();
+    const response = await fetch("http://localhost:4000/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  }
 
   return (
     <div className="loginPage">
-      <div style={{ position: "absolute", right: "75vh", top: "12vh" }}>
-        {/* Description */}
-        <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
-          Sign Up
-        </h1>
-        <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
-          Create Account
-        </h1>
-
-        {/* Email */}
-        <Grid container style={{ position: "flex", flexDirection: "column" }}>
-          <FormControl
-            sx={{ m: 1, width: "65vh", marginTop: "10vh" }}
-            variant="outlined"
-          >
-            <InputLabel
-              htmlFor="outlined-adornment-email"
-              style={{ color: "white", fontFamily: "DM Sans" }}
-            >
-              Email
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              endAdornment={
-                <InputAdornment position="end" style={{ color: "white" }}>
-                  <AlternateEmailIcon style={{ color: "white" }} />
-                </InputAdornment>
-              }
-              label="Email"
-            />
-          </FormControl>
-
-          {/* Password */}
-          <FormControl
-            sx={{ m: 1, width: "65vh", marginTop: "2vh" }}
-            variant="outlined"
-          >
-            <InputLabel
-              htmlFor="outlined-adornment-password"
-              style={{ color: "white", fontFamily: "DM Sans" }}
-            >
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                    style={{ color: "white" }}
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
-
-          {/* Button */}
-          <Button
-            variant="contained"
-            style={{
-              color: "white",
-              marginTop: "4vh",
-              fontSize: 20,
-              fontFamily: "DM Sans",
-              borderRadius: 14,
-              background: "#275BC3",
-              textTransform: "none",
-            }}
-          >
+      <form onSubmit={registerUser}>
+        <div style={{ position: "absolute", right: "75vh", top: "12vh" }}>
+          {/* Description */}
+          <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
+            Sign Up
+          </h1>
+          <h1 style={{ color: "white", fontFamily: "DM Sans", opacity: 0.9 }}>
             Create Account
-          </Button>
+          </h1>
 
-          {/* Sign up */}
-          <Typography
-            style={{
-              color: "#FFFFFF",
-              fontFamily: "DM Sans",
-              fontSize: 20,
-              textAlign: "center",
-              marginTop: "5vh",
-            }}
-          >
-            Have account?
-            <Button
-              style={{
-                color: "black",
-                fontFamily: "DM Sans",
-                fontWeight: "bold",
-                paddingLeft: "3vh",
-                textTransform: "none",
-                fontSize: 20,
-              }}
-              component={Link}
-              to="/login"
+          <Grid container style={{ position: "flex", flexDirection: "column" }}>
+            {/* Name */}
+            <FormControl
+              sx={{ m: 1, width: "65vh", marginTop: "8vh" }}
+              variant="outlined"
             >
-              Sign In
+              <InputLabel
+                htmlFor="outlined-adornment-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{ color: "white", fontFamily: "DM Sans" }}
+              >
+                Full Name
+              </InputLabel>
+              <OutlinedInput id="outlined-adornment-name" label="name" />
+            </FormControl>
+            {/* Email */}
+            <FormControl sx={{ m: 1, width: "65vh" }} variant="outlined">
+              <InputLabel
+                htmlFor="outlined-adornment-email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ color: "white", fontFamily: "DM Sans" }}
+              >
+                Email
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-email"
+                endAdornment={
+                  <InputAdornment position="end" style={{ color: "white" }}>
+                    <AlternateEmailIcon style={{ color: "white" }} />
+                  </InputAdornment>
+                }
+                label="Email"
+              />
+            </FormControl>
+
+            {/* Password */}
+            <FormControl
+              sx={{ m: 1, width: "65vh", marginTop: "2vh" }}
+              variant="outlined"
+            >
+              <InputLabel
+                htmlFor="outlined-adornment-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ color: "white", fontFamily: "DM Sans" }}
+              >
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                      style={{ color: "white" }}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+
+            {/* Button */}
+            <Button
+              type="submit"
+              value="register"
+              variant="contained"
+              style={{
+                color: "white",
+                marginTop: "4vh",
+                fontSize: 20,
+                fontFamily: "DM Sans",
+                borderRadius: 14,
+                background: "#275BC3",
+                textTransform: "none",
+              }}
+            >
+              Create Account
             </Button>
-          </Typography>
-        </Grid>
-      </div>
+
+            {/* Sign up */}
+            <Typography
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "DM Sans",
+                fontSize: 20,
+                textAlign: "center",
+                marginTop: "5vh",
+              }}
+            >
+              Have account?
+              <Button
+                style={{
+                  color: "black",
+                  fontFamily: "DM Sans",
+                  fontWeight: "bold",
+                  paddingLeft: "3vh",
+                  textTransform: "none",
+                  fontSize: 20,
+                }}
+                component={Link}
+                to="/login"
+              >
+                Sign In
+              </Button>
+            </Typography>
+          </Grid>
+        </div>
+      </form>
     </div>
   );
 };

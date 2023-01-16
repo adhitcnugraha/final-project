@@ -94,7 +94,12 @@ const Navbar = () => {
           <Button
             color="inherit"
             size="large"
-            style={{ color: "#F9F9F9", fontSize: 20, fontFamily: "DM Sans" }}
+            style={{
+              color: "#F9F9F9",
+              fontSize: 20,
+              fontFamily: "DM Sans",
+              textTransform: "none",
+            }}
           >
             Logout
           </Button>
@@ -103,7 +108,12 @@ const Navbar = () => {
         <Button
           color="inherit"
           size="large"
-          style={{ color: "#F9F9F9", fontSize: 20, fontFamily: "DM Sans" }}
+          style={{
+            color: "#F9F9F9",
+            fontSize: 20,
+            fontFamily: "DM Sans",
+            textTransform: "none",
+          }}
           component={Link}
           to="/login"
         >

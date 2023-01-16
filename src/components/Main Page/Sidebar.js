@@ -14,7 +14,6 @@ function Sidebar({ topAnime, topManga }) {
                 display: "flex",
                 alignItems: "center",
                 margin: 10,
-                justifyContent: "",
               }}
             >
               <EmojiEventsOutlinedIcon
@@ -73,15 +72,19 @@ function Sidebar({ topAnime, topManga }) {
               >
                 Top Manga
               </h1>
-              <h1
+              <Typography
+                component={Link}
+                to="/manga"
                 style={{
-                  marginLeft: "10vh",
+                  marginLeft: "12vh",
                   fontSize: 16,
                   fontFamily: "DM Sans",
+                  color: "black",
+                  textTransform: "none",
                 }}
               >
                 View All
-              </h1>
+              </Typography>
             </div>
             {topManga.map((manga) => (
               <a

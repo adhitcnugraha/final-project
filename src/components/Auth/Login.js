@@ -59,7 +59,7 @@ const Login = () => {
               Email
             </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-password"
+              id="outlined-adornment-email"
               endAdornment={
                 <InputAdornment position="end" style={{ color: "white" }}>
                   <AlternateEmailIcon style={{ color: "white" }} />
