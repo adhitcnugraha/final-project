@@ -63,7 +63,7 @@ function AnimeCard({ anime }) {
         </CardActionArea>
         <CardActions>
           <Button>
-            <FavoriteIcon style={{ margin: "0 0 0 20px" }} />{" "}
+            <FavoriteIcon style={{ margin: "0 0 0 7vh" }} />
             <h3
               style={{
                 padding: "0 0 0 7px",

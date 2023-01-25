@@ -16,7 +16,7 @@ import "typeface-dm-sans";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  // useState email & password
+  // useState register
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,8 +31,8 @@ const Register = () => {
   };
 
   // Register User
-  async function registerUser(e) {
-    e.preventDefault();
+  async function registerUser(event) {
+    event.preventDefault();
     const response = await fetch("http://localhost:4000/api/register", {
       method: "POST",
       headers: {
@@ -69,7 +69,7 @@ const Register = () => {
               <InputLabel
                 htmlFor="outlined-adornment-name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(event) => setName(event.target.value)}
                 style={{ color: "white", fontFamily: "DM Sans" }}
               >
                 Full Name
@@ -81,7 +81,7 @@ const Register = () => {
               <InputLabel
                 htmlFor="outlined-adornment-email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
                 style={{ color: "white", fontFamily: "DM Sans" }}
               >
                 Email
@@ -105,7 +105,7 @@ const Register = () => {
               <InputLabel
                 htmlFor="outlined-adornment-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
                 style={{ color: "white", fontFamily: "DM Sans" }}
               >
                 Password
